@@ -135,11 +135,24 @@ Use this command to store the keystore password in Credential Manager.
 cmdkey /generic:KEYSTORE_PASSWORD /user:ngbsn /pass:password
 ```
 This stores the password in Windows Credential Manager using account of Logged-In user. The Java application has to be run as the Logged-In user to be able to access the Windows Credential.
-Let's change our main class to retrieve this password during application startup.
 
+Use this maven dependency.
+```xml
+<dependency>
+    <groupId>com.microsoft</groupId>
+    <artifactId>credential-secure-storage</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Let's change our main class to retrieve this password during application startup.
 ```java   
 @SpringBootApplication
 class HelloWorldApplication {
+    
+   private static final SecretStore<StoredCredential> credentialStorage =
+           StorageProvider.getCredentialStorage(true, StorageProvider.SecureOption.REQUIRED);
+   
     public static void main(String[] args) {
         Properties props = new Properties();
         setSSLProps(props);
