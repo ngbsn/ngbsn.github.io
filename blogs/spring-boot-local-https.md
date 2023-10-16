@@ -97,6 +97,7 @@ public class HelloWorldController {
     ```
     openssl pkcs12 -export -in localhost.crt -inkey localhost.key -out localhost.p12 -name localhost
     ```
+    
 ## Import the Root CA certificate into Windows Trusted Root Certification Authorities Certificate Store
 Run the below command on Command Prompt as Administrator.
 ```
@@ -111,7 +112,7 @@ class HelloWorldApplication{
     public static void main(String[] args) {
         Properties props = new Properties();
         setSSLProps(props);
-        new SpringApplicationBuilder(VerifierWindowsSdkApplication.class)
+        new SpringApplicationBuilder(HelloWorldApplication.class)
                 .properties(props).run(args);
     }
 
@@ -141,7 +142,7 @@ class HelloWorldApplication {
     public static void main(String[] args) {
         Properties props = new Properties();
         setSSLProps(props);
-        new SpringApplicationBuilder(VerifierWindowsSdkApplication.class)
+        new SpringApplicationBuilder(HelloWorldApplication.class)
                 .properties(props).run(args);
     }
 
