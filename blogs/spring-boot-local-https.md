@@ -8,7 +8,6 @@ I will show how to set up SSL for a simple Hello World Spring Boot application w
 You should be able to run your application securely with the URL https://localhost:8080/hello-world
 
 ## Table of Contents
-- Overview 
 - Create a sample Spring Boot Application 
 - Generate a Root CA certificate and SSL Keystore 
 - Install the Root CA certificate into Windows Trusted Root Certification Authorities Certificate Store
