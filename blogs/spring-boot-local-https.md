@@ -1,9 +1,9 @@
 [Home](https://ngbsn.github.io/)
 
-# How to securely run you Java application locally on Windows with HTTPS
+# How to securely run you localhost Java application on Windows with HTTPS
 
 ## Overview
-This article is intended for Java applications running on Windows and exposing REST APIs to be consumed by other applications locally.
+This article is intended for Java applications running on Windows as localhost and exposing REST APIs to be consumed by other applications locally.
 I will show how to set up SSL for a simple Hello World Spring Boot application with the objective of achieving end to end security for the REST APIs.
 You should be able to run your application securely with the URL https://localhost:8080/hello-world
 
