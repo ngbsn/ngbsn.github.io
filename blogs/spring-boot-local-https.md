@@ -105,7 +105,7 @@ Run the below command on Command Prompt as Administrator
 certutil.exe -addstore root rootCA.crt
 ```
 
-## Use the SSL keystore in your Spring Boot application Main class.
+## Use the SSL keystore in your Spring Boot application Main class
 
 ```java
 @SpringBootApplication
@@ -174,10 +174,10 @@ Setting up our Java Application this way ensures HTTPS for our APIs with the add
 Further to this, having some kind of API authentication for the APIs ensures an end to end security.
 
 ## Run the Spring Boot Application as a Windows Service
-If you want to set up the application as a Windows Service, you can use a service manager such as NSSM (https://nssm.cc/).
+If you want to set up the application as a Windows Service, you can use a service manager such as [NSSM](https://nssm.cc/).
 If the Windows Service is logged on as "Local System Account", then the Windows Credential needs to be stored as "Local System account", as "Local System account" cannot access the Credential that was created using the previous Logged-In user.
 
-To do this, download PSTools from https://learn.microsoft.com/en-us/sysinternals/downloads/psexec and run the below command to store the keystore password
+To do this, download [PSTools](https://learn.microsoft.com/en-us/sysinternals/downloads/psexec) from the Windows Official Site and run the below command to store the keystore password
 
 ```
 psexec -s /accepteula cmdkey /generic:KEYSTORE_PASSWORD /user:ngbsn /pass:password
