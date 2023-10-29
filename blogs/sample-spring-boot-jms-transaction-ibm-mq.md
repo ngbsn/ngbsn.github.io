@@ -15,7 +15,9 @@ to an OUT QUEUE using JmsTemplate.
 
 - Create a simple Spring Boot Application
 - Configure the Spring Boot Application to use IBM MQ
-- Configure the beans for MQ Connection Factory and Transaction Manager.
+- Configure the beans for MQ Connection Factory and Transaction Manager
+- Write the JMS Producer and a Service to process the incoming message
+- Write the JMS Listener
 
 ## Create a simple Spring Boot Application
 
