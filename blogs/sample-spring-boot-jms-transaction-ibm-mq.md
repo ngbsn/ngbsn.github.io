@@ -3,17 +3,22 @@
 # How to use Spring @Transactional with @JmsListener for IBM MQ
 
 ## Overview
-This article shows how to create a Spring JMS Listener. To achieve transactions, we shall be using the Transaction Management from Spring Framework 
-and for the messaging system we shall be using IBM MQ. 
-The following example shows a simple Spring Boot application receiving a message from an IN QUEUE on the JMSListener and publishing the message 
+
+This article shows how to create a Spring JMS Listener. To achieve transactions, we shall be using the Transaction
+Management from Spring Framework
+and for the messaging system we shall be using IBM MQ.
+The following example shows a simple Spring Boot application receiving a message from an IN QUEUE on the JMSListener and
+publishing the message
 to an OUT QUEUE using JmsTemplate.
 
 ## Table of Contents
+
 - Create a simple Spring Boot Application
 - Configure the Spring Boot Application to use IBM MQ
 - Configure the beans for MQ Connection Factory and Transaction Manager.
 
 ## Create a simple Spring Boot Application
+
 Let's start with creating a Spring Boot application.
 
 ```java
@@ -24,6 +29,7 @@ public class JMSTransactionExampleApplication {
    }
 }
 ```
+
 ## Configure the Spring Boot Application to use IBM MQ
 
 Use the following properties in your application.properties file.
@@ -122,6 +128,7 @@ public class JMSTransactionExampleConfig {
 ### Write the JMS Producer and a Service to process the incoming message
 
 #### JMS Producer
+
 ```java
 @Component
 public class JMSProducer {
@@ -136,7 +143,9 @@ public class JMSProducer {
     }
 }
 ```
+
 #### Service
+
 ```java
 @Service
 public class TestService {
