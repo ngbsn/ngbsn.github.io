@@ -4,7 +4,8 @@
 
 ## Overview
 
-This article shows how to create a Spring JMS Listener. To achieve transactions, we shall be using the Transaction
+This article shows how to create a Spring JMS Listener with transactional support. To achieve transactions, we shall be
+using the Transaction
 Management from Spring Framework
 and for the messaging system we shall be using IBM MQ.
 The following example shows a simple Spring Boot application receiving a message from an IN QUEUE on the JMSListener and
@@ -16,19 +17,20 @@ to an OUT QUEUE using JmsTemplate.
 - Create a simple Spring Boot Application
 - Configure the Spring Boot Application to use IBM MQ
 - Configure the beans for MQ Connection Factory and Transaction Manager
-- Write the JMS Producer and a Service to process the incoming message
-- Write the JMS Listener
+- Write a JMS Producer to publish and a Service to process the incoming message
+- Write the JMS Listener with transactional support
 
 ## Create a simple Spring Boot Application
 
 Let's start with creating a Spring Boot application.
 
 ```java
+
 @SpringBootApplication
 public class JMSTransactionExampleApplication {
-   public static void main(String[] args) {
-      SpringApplication.run(JMSTransactionExampleApplication.class, args);
-   }
+    public static void main(String[] args) {
+        SpringApplication.run(JMSTransactionExampleApplication.class, args);
+    }
 }
 ```
 
@@ -49,6 +51,7 @@ ibm.clientId=test
 ## Configure the beans for MQ Connection Factory and Transaction Manager.
 
 ```java
+
 @Configuration
 public class JMSTransactionExampleConfig {
 
@@ -127,11 +130,12 @@ public class JMSTransactionExampleConfig {
 }
 ```
 
-### Write the JMS Producer and a Service to process the incoming message
+### Write a JMS Producer to publish and a Service to process the incoming message
 
 #### JMS Producer
 
 ```java
+
 @Component
 public class JMSProducer {
     private static final Logger logger
@@ -139,7 +143,7 @@ public class JMSProducer {
     @Autowired
     JmsTemplate jmsTemplate;
 
-    public void publish(final String message){
+    public void publish(final String message) {
         jmsTemplate.convertAndSend("DEV.LOCAL.TEST_OUT_QUEUE", message);
         logger.info("Successfully published message {}", message);
     }
@@ -149,6 +153,7 @@ public class JMSProducer {
 #### Service
 
 ```java
+
 @Service
 public class TestService {
     private static final Logger logger
@@ -158,16 +163,17 @@ public class TestService {
     @Autowired
     JMSProducer jmsProducer;
 
-    public void process(final String message){
+    public void process(final String message) {
         jmsProducer.publish(message + "-PROCESSED");
         logger.info("Successfully processed message {}", message);
     }
 }
 ```
 
-### Write the JMS Listener
+### Write the JMS Listener with transactional support
 
 ```java
+
 @Component
 public class JMSListener {
     private static final Logger logger
@@ -185,9 +191,10 @@ public class JMSListener {
 ```
 
 If no exception occurs, transaction will be committed and the message will be removed from the DEV.LOCAL.TEST_IN_QUEUE.
-If can exception occurs, transaction is rolled back and message it not removed from DEV.LOCAL.TEST_IN_QUEUE.
+If an exception occurs, transaction will be rolled back and message will not be removed from DEV.LOCAL.TEST_IN_QUEUE.
 
-The source code for this example can be found on [GitHub](https://github.com/ngbsn/sample-spring-boot-jms-transaction-ibm-mq)
+The source code for this example can be found
+on [GitHub](https://github.com/ngbsn/sample-spring-boot-jms-transaction-ibm-mq)
 
 ### This concludes our article!
 
