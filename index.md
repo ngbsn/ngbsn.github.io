@@ -9,9 +9,8 @@ layout: default
 
 # Projects
 
-* [DDL to JPA Entities Code Generator Maven PLugin](https://github.com/ngbsn/sqlscript2jpa-codegen)
+* [DDL to JPA Entities Code Generator Maven PLugin Library](https://github.com/ngbsn/sqlscript2jpa-codegen)
 
-  This tool takes an SQL script file as input and generates code for JPA entities. It can be used either as a maven
-  plugin
-  or run directly as a standalone jar to generate the code. It supports DDL statements for multiple databases such as
+  This library takes an SQL script file as input and generates code for JPA entities. It can be used either as a maven
+  plugin or run directly as a standalone jar to generate the code. It supports DDL statements for multiple databases such as
   Oracle, MySQL and PostgreSQL.
