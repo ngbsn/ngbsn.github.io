@@ -183,7 +183,9 @@ public class JMSListener {
 ```
 
 If no exception occurs, transaction will be committed and the message will be removed from the DEV.LOCAL.TEST_IN_QUEUE.
-If can exception occurs, transcation is rolled back and message it not removed from DEV.LOCAL.TEST_IN_QUEUE.
+If can exception occurs, transaction is rolled back and message it not removed from DEV.LOCAL.TEST_IN_QUEUE.
+
+The source code for this example can be found on [GitHub](https://github.com/ngbsn/sample-spring-boot-jms-transaction-ibm-mq)
 
 ### This concludes our article!
 
