@@ -108,8 +108,12 @@ public class HelloWorldController {
 
 ## Import the Root CA certificate into Windows Trusted Root Certification Authorities Certificate Store
 
-Run the below command on Command Prompt as Administrator.
+If the localhost APIs are invoked directly from a browser running a client web application, adding the Root CA certificate to the Windows CA TrustStore
+will ensure the SSL certificate is validated.
+On the other hand, if the client is a Thick Client Application, a suitable CA certs truststore can be chosen, for example, **Java cacerts truststore** 
 
+I will show how to add the root CA Certificate to Windows CA TrustStore.
+Run the below command on Command Prompt as Administrator.
 ```
 certutil.exe -addstore root rootCA.crt
 ```
