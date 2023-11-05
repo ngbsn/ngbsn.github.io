@@ -14,7 +14,7 @@ You should be able to run your application securely with the URL https://localho
 
 - Create a sample Spring Boot Application
 - Generate a Root CA certificate and SSL Keystore
-- Install the Root CA certificate into Windows Trusted Root Certification Authorities Certificate Store
+- Import the Root CA certificate into Windows Trusted Root Certification Authorities Certificate Store
 - Use the SSL Keystore in your Spring Boot Application
 - Store the Keystore password in Windows Credential Manager
 - Run the Spring Boot Application as a Windows Service
